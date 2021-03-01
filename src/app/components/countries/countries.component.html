@@ -1,0 +1,26 @@
+<div class="jubmotron bg-white text-center">
+    <h1 class="display-4">Covid Statistics Dashboard Country Wise</h1>
+    <hr class="my-4">
+    <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde distinctio temporibus laboriosam illo itaque minus quibusdam nam laborum architecto voluptas iste, pariatur, accusamus est nulla quasi accusantium, molestiae veritatis dolor?</p>
+    <hr class="my-4">
+</div>
+
+<div class="mx-auto text-center">
+    <div class="form-group col-lg-5 mx-auto">
+    <label for="countries-dropdown">Select Country</label>
+    <select class="form-control"  id="countries-dropdown" #selectedCountry (change)="updateValues(selectedCountry.value)">
+        <option value="Countries">Countries</option>
+        <option *ngFor="let country of countries" value="{{country}}">
+            {{country}}
+        </option>
+    </select>
+    </div>
+</div>
+
+<app-dashboard-card 
+        [totalConfirmed]="totalConfirmed"
+        [totalActive]="totalActive"
+        [totalRecovered]="totalRecovered"
+        [totalDeaths]="totalDeaths">
+</app-dashboard-card>
+

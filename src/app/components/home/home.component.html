@@ -1,0 +1,56 @@
+<div class="jubmotron bg-white text-center">
+    <h1 class="display-4">Covid Statistics Dashboard</h1>
+    <hr class="my-4">
+    <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde distinctio temporibus laboriosam illo itaque minus quibusdam nam laborum architecto voluptas iste, pariatur, accusamus est nulla quasi accusantium, molestiae veritatis dolor?</p>
+    <hr class="my-4">
+       
+</div>
+
+<app-dashboard-card 
+        [totalConfirmed]="totalConfirmed"
+        [totalActive]="totalActive"
+        [totalRecovered]="totalRecovered"
+        [totalDeaths]="totalDeaths"
+    ></app-dashboard-card>
+
+<div class="form-group">
+    <label class="mr-3" for="caseType"> <strong>Select case type</strong></label>
+    <div class="form-check-inline">
+        <label class="form-check-label">
+            <input type="radio" (click)="updateCharts(confirmed)" #confirmed checked value='confirmed' class="form-check-input" name="caseType">Confirmed
+        </label>
+    </div>
+    <div class="form-check-inline">
+        <label class="form-check-label">
+            <input type="radio" (click)="updateCharts(active)" #active value='active' class="form-check-input" name="caseType">Active
+        </label>
+    </div>
+    <div class="form-check-inline">
+        <label class="form-check-label">
+            <input type="radio" (click)="updateCharts(recovered)" #recovered value='recovered' class="form-check-input" name="caseType">Recovered
+        </label>
+    </div>
+    <div class="form-check-inline disabled">
+        <label class="form-check-label">
+            <input type="radio" (click)="updateCharts(deaths)" #deaths value='deaths' class="form-check-input" name="caseType">Deaths
+        </label>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <app-bar-graph [Labels]="countries" [Data]="cases"></app-bar-graph>
+    </div>
+    <div class="col">
+        <app-pie-chart [Labels]="countries" [Data]="cases" ></app-pie-chart>
+    </div>
+</div>
+
+
+
+<!-- <div class="row">
+    <google-chart class="col" [data]="columnChart"></google-chart>
+    <google-chart class="col" [data]="pieChart"></google-chart>
+</div> -->
+
+
